@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TGIF Delivery | Thank God It’s Friday</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #000;
+      background-image: url('tgif-logo.jpg');
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-attachment: fixed;
+      background-size: 400px;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding-bottom: 50px;
+    }
+
+    h1 {
+      margin-top: 30px;
+      color: #FFD700;
+      font-size: 2.8em;
+      text-align: center;
+      text-shadow: 2px 2px 10px black;
+    }
+
+    h2 {
+      color: #FFD700;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      width: 90%;
+      margin: 40px auto;
+    }
+
+    .product {
+      background: rgba(0, 0, 0, 0.85);
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+      transition: 0.3s;
+    }
+
+    .product:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+    }
+
+    .product img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+
+    .product h3 {
+      color: #FFD700;
+      font-size: 1.3em;
+      margin-bottom: 5px;
+    }
+
+    .price {
+      font-size: 1.1em;
+      color: #FFD700;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .colors {
+      color: #ccc;
+      font-size: 0.9em;
+    }
+
+    form {
+      background: rgba(0, 0, 0, 0.85);
+      padding: 30px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    }
+
+    form h2 {
+      text-align: center;
+      color: #FFD700;
+      margin-bottom: 20px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      margin: 10px 0;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      font-size: 1em;
+    }
+
+    button {
+      background: #FFD700;
+      color: #000;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 1.1em;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #000;
+      color: #FFD700;
+      box-shadow: 0 0 15px #FFD700;
+    }
+
+    footer {
+      text-align: center;
+      color: #FFD700;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Thank God It’s Friday</h1>
+  <h2>Delivery Order</h2>
+
+  <div class="product-list">
+    <div class="product">
+      <img src="FB_IMG_1759231101079.jpg" alt="Hat" />
+      <h3>Cap</h3>
+      <p class="price">$25</p>
+      <p class="colors">Available in: Black, White, Gold, Red</p>
+    </div>
+
+    <div class="product">
+      <img src="FB_IMG_1759231101079.jpg" alt="Shirt" />
+      <h3>T-Shirt</h3>
+      <p class="price">$30</p>
+      <p class="colors">Available in: Black, White, Gold</p>
+    </div>
+
+    <div class="product">
+      <img src="FB_IMG_1759231101079.jpg" alt="Bag" />
+      <h3>Bag</h3>
+      <p class="price">$35</p>
+      <p class="colors">Available in: Black, White, Gold, Red</p>
+    </div>
+
+    <div class="product">
+      <img src="FB_IMG_1759231101079.jpg" alt="Pants" />
+      <h3>Pants</h3>
+      <p class="price">$45</p>
+      <p class="colors">Available in: Black, White, Gold, Khaki</p>
+    </div>
+  </div>
+
+  <form id="orderForm">
+    <h2>Place Your Order</h2>
+    <input type="text" id="name" placeholder="Full Name" required />
+    <input type="text" id="phone" placeholder="Phone Number" required />
+    <input type="text" id="address" placeholder="Delivery Address" required />
+    <input type="text" id="location" placeholder="City / Location" required />
+    <select id="product">
+      <option value="Hat ($25)">Hat ($25)</option>
+      <option value="T-Shirt ($30)">T-Shirt ($30)</option>
+      <option value="Bag ($35)">Bag ($35)</option>
+      <option value="Pants ($45)">Pants ($45)</option>
+    </select>
+    <textarea id="details" rows="3" placeholder="Any extra details..."></textarea>
+    <button type="button" onclick="sendToWhatsApp()">Place Order via WhatsApp</button>
+  </form>
+
+  <footer>
+    WhatsApp: <strong>0772058479</strong><br>
+    © 2025 TGIF Clothing Brand. All Rights Reserved.
+  </footer>
+
+  <script>
+    function sendToWhatsApp() {
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const address = document.getElementById('address').value;
+      const location = document.getElementById('location').value;
+      const product = document.getElementById('product').value;
+      const details = document.getElementById('details').value;
+
+      const msg = `*TGIF ORDER*%0A%0A👤 Name: ${name}%0A📞 Phone: ${phone}%0A🏠 Address: ${address}%0A📍 Location: ${location}%0A🛍️ Product: ${product}%0A📝 Details: ${details}`;
+      const whatsapp = `https://wa.me/231772058479?text=${msg}`;
+
+      window.open(whatsapp, "_blank");
+    }
+  </script>
+</body>
+</html>
